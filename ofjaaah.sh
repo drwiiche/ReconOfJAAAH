@@ -17,17 +17,17 @@ echo -e "\e[5mhttps://www.linkedin.com/in/atjunior/ \e[25mConnect :D "
 
 #Create folders####################
 
-if [ ! -d nuclei ]; then
-    mkdir -p nuclei
-fi
+#if [ ! -d nuclei ]; then
+#    mkdir -p nuclei
+#fi
 
-if [ ! -d nuclei/cve ]; then
-    mkdir -p nuclei/cve
-fi
+#if [ ! -d nuclei/cve ]; then
+#    mkdir -p nuclei/cve
+#fi
 
-if [ ! -d nuclei/files ]; then
-   mkdir -p nuclei/files
-fi
+#if [ ! -d nuclei/files ]; then
+#   mkdir -p nuclei/files
+#fi
 
 if [ ! -d nuclei/subtk ]; then
    mkdir -p nuclei/subtk
@@ -74,7 +74,7 @@ rm -rf full/*.*
 rm -rf httprobe/*.*
 rm -rf ettu/*.*
 rm -rf asset/*.*
-rm -rf nuclei/*.*
+#rm -rf nuclei/*.*
 ####################################
 
 getamass(){
@@ -114,12 +114,12 @@ getnaabu(){
 #cat /home/ofjaaah/PENTESTER/SecLists/Discovery/DNS/bitquark_20160227_subdomains_popular_1000000.txt | ettu --depth=2 $1
 #}
 
-getnuclei(){
-&> /dev/null nuclei -l full/fullenumerate.txt -t /home/ofjaaah/PENTESTER/nuclei-templates/cves/ -o nuclei/cve/cve.txt
-&> /dev/null nuclei -l full/fullenumerate.txt -t /home/ofjaaah/PENTESTER/nuclei-templates/files/ -o nuclei/files/files.txt
-&> /dev/null nuclei -l full/fullenumerate.txt -t /home/ofjaaah/PENTESTER/nuclei-templates/subdomain-takeover/ -o nuclei/subtk/subtk.txt
-&> /dev/null nuclei -l full/fullenumerate.txt -t /home/ofjaaah/PENTESTER/nuclei-templates/examples/ -o nuclei/example/exp.txt
-}
+#getnuclei(){
+#&> /dev/null nuclei -l full/fullenumerate.txt -t /home/ofjaaah/PENTESTER/nuclei-templates/cves/ -o nuclei/cve/cve.txt
+#&> /dev/null nuclei -l full/fullenumerate.txt -t /home/ofjaaah/PENTESTER/nuclei-templates/files/ -o nuclei/files/files.txt
+#&> /dev/null nuclei -l full/fullenumerate.txt -t /home/ofjaaah/PENTESTER/nuclei-templates/subdomain-takeover/ -o nuclei/subtk/subtk.txt
+#&> /dev/null nuclei -l full/fullenumerate.txt -t /home/ofjaaah/PENTESTER/nuclei-templates/examples/ -o nuclei/example/exp.txt
+#}
 
 #run 
 getamass $1
@@ -130,4 +130,4 @@ getcollect $1
 gethtttprobe $1
 getwayback $1
 getnaabu $1
-getnuclei $1
+#getnuclei $1
