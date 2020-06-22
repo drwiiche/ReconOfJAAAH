@@ -81,7 +81,7 @@ getamass(){
 &> /dev/null amass enum -d $1 -brute -o amass/amassdns.txt
 }
 
-echo -e "\e[92mRecon running, please. Whait..\n"
+echo -e "\e[92mRecon running, please. Wait..\n"
 getsubfinder(){ 
 subfinder -d $1 -silent >> subhttp/saida.txt 
 }
