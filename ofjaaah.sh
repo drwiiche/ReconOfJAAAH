@@ -4,7 +4,7 @@ echo -e "\e[33mOF\e[32mJAAAH\e[31m Automation Recoon\n"
 echo -e "\e[5mhttps://www.linkedin.com/in/atjunior/ \e[25mConnect :D "
 
 #install dependenci
-#GO111MODULE=on go get -v github.com/projectdiscovery/subfinder/cmd/subfinder
+#wget https://github.com/projectdiscovery/subfinder/releases/download/2.3.5/subfinder_2.3.5_linux_386.tar.gz
 #go get -u github.com/tomnomnom/assetfinder
 #go get -u github.com/tomnomnom/hacks/ettu
 #GO111MODULE=on go get -v github.com/projectdiscovery/naabu/cmd/naabu
