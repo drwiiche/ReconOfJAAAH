@@ -29,13 +29,13 @@ echo -e "\e[5mhttps://www.linkedin.com/in/atjunior/ \e[25mConnect :D "
 #   mkdir -p nuclei/files
 #fi
 
-if [ ! -d nuclei/subtk ]; then
-   mkdir -p nuclei/subtk
-fi
+#if [ ! -d nuclei/subtk ]; then
+#   mkdir -p nuclei/subtk
+#fi
 
-if [ ! -d nuclei/examples ]; then
-   mkdir -p nuclei/examples
-fi
+#if [ ! -d nuclei/examples ]; then
+#   mkdir -p nuclei/examples
+#fi
 
 if [ ! -d naabu ]; then
     mkdir -p naabu
