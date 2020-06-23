@@ -102,9 +102,9 @@ gethtttprobe(){
 cat full/fullenumerate.txt | httprobe  >> httprobe/urls.txt
 }
 
-getwayback(){
-cat httprobe/urls.txt | waybackurls >> httprobe/wayback.txt
-}
+#getwayback(){
+#cat httprobe/urls.txt | waybackurls >> httprobe/wayback.txt
+#}
 
 getnaabu(){
 &> /dev/null naabu -hL full/fullenumerate.txt -ports top-100 -o naabu/naabucomplet.txt -silent
@@ -128,6 +128,6 @@ getettu $1
 getassetfinder $1
 getcollect $1
 gethtttprobe $1
-getwayback $1
+#getwayback $1
 getnaabu $1
 #getnuclei $1
