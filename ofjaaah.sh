@@ -3,13 +3,8 @@
 echo -e "\e[33mOF\e[32mJAAAH\e[31m Automation Recoon\n"
 echo -e "\e[5mhttps://www.linkedin.com/in/atjunior/ \e[25mConnect :D "
 
-#install dependency
-#wget https://github.com/Edu4rdSHL/findomain/releases/latest/download/findomain-linux
-#chmod +x findomain-linux
-#findomain-linux
-#wget https://github.com/projectdiscovery/subfinder/releases/download/2.3.5/subfinder_2.3.5_linux_386.tar.gz
-#tar -xzvf subfinder-linux-amd64.tar.gz
-#mv subfinder /usr/bin/subfinder
+#install dependenci
+#GO111MODULE=on go get -v github.com/projectdiscovery/subfinder/cmd/subfinder
 #go get -u github.com/tomnomnom/assetfinder
 #go get -u github.com/tomnomnom/hacks/ettu
 #GO111MODULE=on go get -v github.com/projectdiscovery/naabu/cmd/naabu
@@ -20,25 +15,25 @@ echo -e "\e[5mhttps://www.linkedin.com/in/atjunior/ \e[25mConnect :D "
 
 #Create folders####################
 
-#if [ ! -d nuclei ]; then
-#    mkdir -p nuclei
-#fi
+if [ ! -d nuclei ]; then
+    mkdir -p nuclei
+fi
 
-#if [ ! -d nuclei/cve ]; then
-#    mkdir -p nuclei/cve
-#fi
+if [ ! -d nuclei/cve ]; then
+    mkdir -p nuclei/cve
+fi
 
-#if [ ! -d nuclei/files ]; then
-#   mkdir -p nuclei/files
-#fi
+if [ ! -d nuclei/files ]; then
+   mkdir -p nuclei/files
+fi
 
-#if [ ! -d nuclei/subtk ]; then
-#   mkdir -p nuclei/subtk
-#fi
+if [ ! -d nuclei/subtk ]; then
+   mkdir -p nuclei/subtk
+fi
 
-#if [ ! -d nuclei/examples ]; then
-#   mkdir -p nuclei/examples
-#fi
+if [ ! -d nuclei/examples ]; then
+   mkdir -p nuclei/examples
+fi
 
 if [ ! -d naabu ]; then
     mkdir -p naabu
@@ -48,9 +43,9 @@ if [ ! -d subhttp ]; then
     mkdir -p subhttp
 fi
 
-if [ ! -d amass ]; then
-    mkdir -p amass
-fi
+#if [ ! -d amass ]; then
+#    mkdir -p amass
+#fi
 
 if [ ! -d full ]; then
     mkdir -p full
@@ -68,20 +63,38 @@ if [ ! -d asset ]; then
     mkdir -p asset
 fi
 
+#if [ ! -d shodan ]; then
+#    mkdir -p shodan
+#fi
+
+if [ ! -d findomain ]; then
+    mkdir -p findomain
+fi
+
 #Delet files########################
 
 rm -rf naabu/*.*
 rm -rf subhttp/*.*
-rm -rf amass/*.*
+#rm -rf amass/*.*
 rm -rf full/*.*
 rm -rf httprobe/*.*
-rm -rf ettu/*.*
+#rm -rf ettu/*.*
 rm -rf asset/*.*
-#rm -rf nuclei/*.*
+rm -rf nuclei/*.*
+#rm -rf shodan/*.*
+rm -rf findomain/*.*
 ####################################
 
-getamass(){
-&> /dev/null amass enum -d $1 -brute -o amass/amassdns.txt
+#getshodan(){
+#shodan domain $1 >> shodan/shodan.txt
+#}
+
+#getamass(){
+#&> /dev/null amass enum -d $1 -brute -active -o amass/amassdns.txt
+#}
+
+getfindomain(){
+&> /dev/null /home/ofjaaah/PENTESTER/findomain-linux -t $1 -u findomain/findomain.txt
 }
 
 echo -e "\e[92mRecon running, please. Wait..\n"
@@ -89,16 +102,16 @@ getsubfinder(){
 subfinder -d $1 -silent >> subhttp/saida.txt 
 }
 
-getettu(){
-ettu --depth=2 $1 /home/ofjaaah/PENTESTER/SecLists/Discovery/DNS/bitquark-subdomains-top100K.txt >> ettu/ettu.txt
-}
+#getettu(){
+#ettu --depth=2 $1 /home/ofjaaah/PENTESTER/SecLists/Discovery/DNS/bitquark-subdomains-top100K.txt >> ettu/ettu.txt
+#}
 
 getassetfinder(){
 assetfinder --subs-only $1 >> asset/finder.txt
 
 }
 getcollect(){
-cat subhttp/saida.txt asset/finder.txt >> full/fullenumerate.txt
+cat subhttp/saida.txt asset/finder.txt findomain/findomain.txt >> full/fullenumerate.txt
 }
 
 gethtttprobe(){
@@ -110,7 +123,7 @@ cat full/fullenumerate.txt | httprobe  >> httprobe/urls.txt
 #}
 
 getnaabu(){
-&> /dev/null naabu -hL full/fullenumerate.txt -ports top-100 -o naabu/naabucomplet.txt -silent
+&> /dev/null naabu -hL full/fullenumerate.txt -ports full -o naabu/naabucomplet.txt -silent
 }
 
 #getettu(){ ettu
@@ -124,10 +137,13 @@ getnaabu(){
 #&> /dev/null nuclei -l full/fullenumerate.txt -t /home/ofjaaah/PENTESTER/nuclei-templates/examples/ -o nuclei/example/exp.txt
 #}
 
-#run 
-getamass $1
+#run
+
+#getshodan $1 $2
+#getamass $1
+getfindomain $1
 getsubfinder $1
-getettu $1
+#getettu $1
 getassetfinder $1
 getcollect $1
 gethtttprobe $1
