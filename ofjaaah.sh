@@ -3,7 +3,10 @@
 echo -e "\e[33mOF\e[32mJAAAH\e[31m Automation Recoon\n"
 echo -e "\e[5mhttps://www.linkedin.com/in/atjunior/ \e[25mConnect :D "
 
-#install dependenci
+#install dependency
+#wget https://github.com/Edu4rdSHL/findomain/releases/latest/download/findomain-linux
+#chmod +x findomain-linux
+#findomain-linux
 #wget https://github.com/projectdiscovery/subfinder/releases/download/2.3.5/subfinder_2.3.5_linux_386.tar.gz
 #tar -xzvf subfinder-linux-amd64.tar.gz
 #mv subfinder /usr/bin/subfinder
