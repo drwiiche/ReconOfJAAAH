@@ -3,7 +3,7 @@
 echo -e "\e[33mOF\e[32mJAAAH\e[31m Automation Recoon\n"
 echo -e "\e[5mhttps://www.linkedin.com/in/atjunior/ \e[25mConnect :D "
 
-#install dependenci
+#install dependency
 #GO111MODULE=on go get -v github.com/projectdiscovery/subfinder/cmd/subfinder
 #go get -u github.com/tomnomnom/assetfinder
 #go get -u github.com/tomnomnom/hacks/ettu
@@ -15,25 +15,25 @@ echo -e "\e[5mhttps://www.linkedin.com/in/atjunior/ \e[25mConnect :D "
 
 #Create folders####################
 
-if [ ! -d nuclei ]; then
-    mkdir -p nuclei
-fi
+#if [ ! -d nuclei ]; then
+#    mkdir -p nuclei
+#fi
 
-if [ ! -d nuclei/cve ]; then
-    mkdir -p nuclei/cve
-fi
+#if [ ! -d nuclei/cve ]; then
+#    mkdir -p nuclei/cve
+#fi
 
-if [ ! -d nuclei/files ]; then
-   mkdir -p nuclei/files
-fi
+#if [ ! -d nuclei/files ]; then
+#   mkdir -p nuclei/files
+#fi
 
-if [ ! -d nuclei/subtk ]; then
-   mkdir -p nuclei/subtk
-fi
+#if [ ! -d nuclei/subtk ]; then
+#   mkdir -p nuclei/subtk
+#fi
 
-if [ ! -d nuclei/examples ]; then
-   mkdir -p nuclei/examples
-fi
+#if [ ! -d nuclei/examples ]; then
+#   mkdir -p nuclei/examples
+#fi
 
 if [ ! -d naabu ]; then
     mkdir -p naabu
