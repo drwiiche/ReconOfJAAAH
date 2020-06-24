@@ -55,9 +55,9 @@ if [ ! -d httprobe ]; then
     mkdir -p httprobe
 fi
 
-if [ ! -d ettu ]; then
-    mkdir -p ettu
-fi
+#if [ ! -d ettu ]; then
+#    mkdir -p ettu
+#fi
 
 if [ ! -d asset ]; then
     mkdir -p asset
@@ -80,7 +80,7 @@ rm -rf full/*.*
 rm -rf httprobe/*.*
 #rm -rf ettu/*.*
 rm -rf asset/*.*
-rm -rf nuclei/*.*
+#rm -rf nuclei/*.*
 #rm -rf shodan/*.*
 rm -rf findomain/*.*
 ####################################
