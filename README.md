@@ -56,5 +56,7 @@ chmod +x ofjaaah.sh
 ```
 
 ## Contacts
-[Linkedin](https://www.linkedin.com/in/atjunior/)
+[Linkedin]
+
+![lnk](https://user-images.githubusercontent.com/28729614/85742377-30b7e680-b6d1-11ea-81c0-06b52c9dd7de.png)(https://www.linkedin.com/in/atjunior/)
 
