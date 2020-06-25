@@ -4,7 +4,7 @@
 
 Automated reccon script tool. [ BUG-BOUNTY ]
 
-Automated tool based on https://github.com/tomnomnom/\n https://sonar.omnisint.io/ https://github.com/OWASP/Amass https://github.com/Edu4rdSHL/findomain tools.
+Automated tool based on https://github.com/tomnomnom/ https://sonar.omnisint.io/ https://github.com/OWASP/Amass https://github.com/Edu4rdSHL/findomain tools.
 
 To use go must be installed.
 
