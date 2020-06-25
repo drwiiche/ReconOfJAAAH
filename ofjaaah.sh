@@ -3,7 +3,7 @@
 echo -e "\e[33mOF\e[32mJAAAH\e[31m Automation Recoon\n"
 echo -e "\e[5mhttps://www.linkedin.com/in/atjunior/ \e[25mConnect :D "
 
-#install dependency
+#install dependenci
 #GO111MODULE=on go get -v github.com/projectdiscovery/subfinder/cmd/subfinder
 #go get -u github.com/tomnomnom/assetfinder
 #go get -u github.com/tomnomnom/hacks/ettu
@@ -43,9 +43,9 @@ if [ ! -d subhttp ]; then
     mkdir -p subhttp
 fi
 
-#if [ ! -d amass ]; then
-#    mkdir -p amass
-#fi
+if [ ! -d amass ]; then
+    mkdir -p amass
+fi
 
 if [ ! -d full ]; then
     mkdir -p full
@@ -71,11 +71,15 @@ if [ ! -d findomain ]; then
     mkdir -p findomain
 fi
 
+if [ ! -d cert ]; then
+    mkdir -p cert
+fi 
+
 #Delet files########################
 
 rm -rf naabu/*.*
 rm -rf subhttp/*.*
-#rm -rf amass/*.*
+rm -rf amass/*.*
 rm -rf full/*.*
 rm -rf httprobe/*.*
 #rm -rf ettu/*.*
@@ -83,7 +87,12 @@ rm -rf asset/*.*
 #rm -rf nuclei/*.*
 #rm -rf shodan/*.*
 rm -rf findomain/*.*
+rm -rf cert/*.*
 ####################################
+
+getcert(){
+curl -s "https://crt.sh/?q=$1&output=json" | jq '.[]["name_value"]' | sort -u | tr -d '"' >> cert/cert.txt
+}
 
 #getshodan(){
 #shodan domain $1 >> shodan/shodan.txt
@@ -111,7 +120,7 @@ assetfinder --subs-only $1 >> asset/finder.txt
 
 }
 getcollect(){
-cat subhttp/saida.txt asset/finder.txt findomain/findomain.txt >> full/fullenumerate.txt
+cat subhttp/saida.txt asset/finder.txt findomain/findomain.txt cert/cert.txt >> full/fullenumerate.txt
 }
 
 gethtttprobe(){
@@ -139,6 +148,7 @@ getnaabu(){
 
 #run
 
+getcert $1
 #getshodan $1 $2
 #getamass $1
 getfindomain $1
