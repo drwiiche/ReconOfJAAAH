@@ -136,10 +136,6 @@ getcollect(){
 cat shosubgo/shosubgo.txt subhttp/saida.txt asset/finder.txt findomain/findomain.txt cert/cert.txt crobalt/crob.txt | sort -u  >> full/fullenumerate.txt
 }
 
-#getfilter(){
-#sort -u full/fullenumerate.txt
-#}
-
 gethtttprobe(){
 cat full/fullenumerate.txt | httprobe  >> httprobe/urls.txt
 }
