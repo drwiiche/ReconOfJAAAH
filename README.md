@@ -2,37 +2,39 @@
 
 ![tomlo](https://user-images.githubusercontent.com/28729614/85304899-4c757f80-b47a-11ea-8671-aa83273c73a5.gif)
 
+# OFJAAAH - BUG HUNTER 
+
 Automated reccon script tool. [ BUG-BOUNTY ]
 
-Automated tool based on https://github.com/tomnomnom/ https://sonar.omnisint.io/ https://github.com/OWASP/Amass https://github.com/Edu4rdSHL/findomain tools.
+Automated tool based.
 
+[Tomnomnom](https://github.com/tomnomnom/)  
+[Crobal-client](https://sonar.omnisint.io/)  
+[Amass](https://github.com/OWASP/Amass)  
+[Findomain](https://github.com/Edu4rdSHL/findomain)
+
+
+## Installation
+
+Use the package manager [go](https://golang.org/doc/install) to install foobar.
+
+```bash
 To use go must be installed.
 
 It is not installed uncomment the dependent lines at the beginning of the code to download the scripts.
 
 The code can be changed to the wordlist to make recons of subdomains, adding your directory.
+```
 
-<h1>Install dependency and scripts</h1>
+## Usage
 
-- [x] #GO111MODULE=on go get -v github.com/projectdiscovery/subfinder/cmd/subfinder
-- [x] #go get -u github.com/tomnomnom/assetfinder
-- [x] #go get -u github.com/tomnomnom/hacks/ettu
-- [x] #GO111MODULE=on go get -v github.com/projectdiscovery/naabu/cmd/naabu
-- [x] #go get -u github.com/tomnomnom/httprobe
-- [x] #go get github.com/tomnomnom/waybackurls
-- [x] #GO111MODULE=on go get -u -v github.com/projectdiscovery/nuclei/cmd/nuclei
-- [x] #git clone https://github.com/projectdiscovery/nuclei-templates.git
-- [x] #go get -u github.com/cgboal/sonarsearch/crobat-client
-- [x] #crobat-client --init
+```bash
+chmod +x ofjaaah.sh
+./ofjaaah.sh site'
+```
 
- 
-- Remembering that you need to configure where the files are in your local directories.
+Please make sure to update tests as appropriate.
 
- <h1>Run</h1>
+## Contacts
+[Linkedin](https://www.linkedin.com/in/atjunior/)
 
-- chmod +x ofjaaah.sh 
-- ./ofjaaah.sh site
-
-https://www.linkedin.com/in/atjunior/
-
-![marvin](https://user-images.githubusercontent.com/28729614/85303574-ac6b2680-b478-11ea-9648-53ee37786a75.gif)
