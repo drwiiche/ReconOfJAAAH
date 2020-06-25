@@ -1,6 +1,6 @@
 # OFJAAAH - BUG HUNTER 
 
-![tomlo](https://user-images.githubusercontent.com/28729614/85304899-4c757f80-b47a-11ea-8671-aa83273c73a5.gif)
+![fumo](https://user-images.githubusercontent.com/28729614/85740384-960ad800-b6cf-11ea-943f-ac4d86481728.gif)
 
 
 Automated reccon script tool. [ BUG-BOUNTY ]
