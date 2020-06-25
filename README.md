@@ -11,7 +11,8 @@ Automated tool based.
 [Crobal-client](https://sonar.omnisint.io/)  
 [Amass](https://github.com/OWASP/Amass)  
 [Findomain](https://github.com/Edu4rdSHL/findomain)  
-[Shosubgo](https://github.com/incogbyte/shosubgo)
+[Shosubgo](https://github.com/incogbyte/shosubgo)   
+[Project Discovery](https://github.com/projectdiscovery/)
 
 
 ## Installation
