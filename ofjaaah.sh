@@ -47,9 +47,9 @@ if [ ! -d subhttp ]; then
     mkdir -p subhttp
 fi
 
-if [ ! -d amass ]; then
-    mkdir -p amass
-fi
+#if [ ! -d amass ]; then
+#    mkdir -p amass
+#fi
 
 if [ ! -d full ]; then
     mkdir -p full
@@ -87,7 +87,7 @@ fi
 
 rm -rf naabu/*.*
 rm -rf subhttp/*.*
-rm -rf amass/*.*
+#rm -rf amass/*.*
 rm -rf full/*.*
 rm -rf httprobe/*.*
 #rm -rf ettu/*.*
@@ -95,7 +95,7 @@ rm -rf asset/*.*
 #rm -rf nuclei/*.*
 rm -rf shosubgo/*.*
 rm -rf findomain/*.*
-#rm -rf cert/*.*
+rm -rf cert/*.*
 rm -rf crobalt/*.*
 ####################################
 
@@ -103,12 +103,12 @@ getcro(){
 crobat-client --all $1 >> crobalt/crob.txt
 }
 
-#getcert(){
-#&> /dev/null curl -s "https://crt.sh/?q=$1&output=json" | jq '.[]["name_value"]' | sort -u | tr -d '"' >> cert/cert.txt
-#}
+getcert(){
+&> /dev/null curl -s "https://crt.sh/?q=$1&output=json" | jq '.[]["name_value"]' | sort -u | tr -d '"' >> cert/cert.txt
+}
 
 getsho(){
-&> /dev/null shosubgo -d $1 -s APY_KEY-SHODAN >> shosubgo/shosubgo.txt
+&> /dev/null shosubgo -d $1 -s u2K3nu5JkEPeLKL3O3PsjeOiLVIXEfnz >> shosubgo/shosubgo.txt
 }
 
 #getamass(){
@@ -136,6 +136,10 @@ getcollect(){
 cat shosubgo/shosubgo.txt subhttp/saida.txt asset/finder.txt findomain/findomain.txt cert/cert.txt crobalt/crob.txt | sort -u  >> full/fullenumerate.txt
 }
 
+#getfilter(){
+#sort -u full/fullenumerate.txt
+#}
+
 gethtttprobe(){
 cat full/fullenumerate.txt | httprobe  >> httprobe/urls.txt
 }
@@ -161,7 +165,7 @@ getnaabu(){
 
 #run
 getcro $1
-#getcert $1
+getcert $1
 getsho $1
 #getamass $1
 getfindomain $1
