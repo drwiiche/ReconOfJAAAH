@@ -19,6 +19,22 @@ Automated tool based.
 Use the package manager [go](https://golang.org/doc/install) to install foobar.
 
 ```bash
+
+Install the Go tools
+If you are upgrading from an older version of Go you must first remove the existing version.
+
+Linux, macOS, and FreeBSD tarballs
+Download the archive and extract it into /usr/local, creating a Go tree in /usr/local/go. For example:
+
+tar -C /usr/local -xzf go$VERSION.$OS-$ARCH.tar.gz
+Choose the archive file appropriate for your installation. For instance, if you are installing Go version 1.2.1 for 64-bit x86 on Linux, the archive you want is called go1.2.1.linux-amd64.tar.gz.
+
+(Typically these commands must be run as root or through sudo.)
+
+Add /usr/local/go/bin to the PATH environment variable. You can do this by adding this line to your /etc/profile (for a system-wide installation) or $HOME/.profile:
+
+export PATH=$PATH:/usr/local/go/bin
+
 To use go must be installed.
 
 You can uncomment the first lines he will downloads.
