@@ -14,6 +14,8 @@ echo -e "\e[5mhttps://www.linkedin.com/in/atjunior/ \e[25mConnect :D "
 #git clone https://github.com/projectdiscovery/nuclei-templates.git
 #go get -u github.com/cgboal/sonarsearch/crobat-client
 #crobat-client --init
+#git clone https://github.com/incogbyte/shosubgo.git
+
 
 #Create folders####################
 
@@ -65,9 +67,9 @@ if [ ! -d asset ]; then
     mkdir -p asset
 fi
 
-#if [ ! -d shodan ]; then
-#    mkdir -p shodan
-#fi
+if [ ! -d shosubgo ]; then
+    mkdir -p shosubgo
+fi
 
 if [ ! -d findomain ]; then
     mkdir -p findomain
@@ -91,7 +93,7 @@ rm -rf httprobe/*.*
 #rm -rf ettu/*.*
 rm -rf asset/*.*
 #rm -rf nuclei/*.*
-#rm -rf shodan/*.*
+rm -rf shosubgo/*.*
 rm -rf findomain/*.*
 #rm -rf cert/*.*
 rm -rf crobalt/*.*
@@ -105,9 +107,9 @@ crobat-client --all $1 >> crobalt/crob.txt
 #&> /dev/null curl -s "https://crt.sh/?q=$1&output=json" | jq '.[]["name_value"]' | sort -u | tr -d '"' >> cert/cert.txt
 #}
 
-#getshodan(){
-#shodan domain $1 >> shodan/shodan.txt
-#}
+getsho(){
+&> /dev/null shosubgo -d $1 -s APY_KEY-SHODAN >> shosubgo/shosubgo.txt
+}
 
 #getamass(){
 #&> /dev/null amass enum -d $1 -brute -active -o amass/amassdns.txt
@@ -131,8 +133,12 @@ assetfinder --subs-only $1 >> asset/finder.txt
 
 }
 getcollect(){
-cat subhttp/saida.txt asset/finder.txt findomain/findomain.txt cert/cert.txt crobalt/crob.txt >> full/fullenumerate.txt
+cat shosubgo/shosubgo.txt subhttp/saida.txt asset/finder.txt findomain/findomain.txt cert/cert.txt crobalt/crob.txt | sort -u  >> full/fullenumerate.txt
 }
+
+#getfilter(){
+#sort -u full/fullenumerate.txt
+#}
 
 gethtttprobe(){
 cat full/fullenumerate.txt | httprobe  >> httprobe/urls.txt
@@ -160,7 +166,7 @@ getnaabu(){
 #run
 getcro $1
 #getcert $1
-#getshodan $1 $2
+getsho $1
 #getamass $1
 getfindomain $1
 getsubfinder $1
