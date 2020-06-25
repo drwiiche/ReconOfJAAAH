@@ -52,7 +52,7 @@ Need to add your shodan apy key on line 109.
 
 ```bash
 chmod +x ofjaaah.sh
-./ofjaaah.sh site'
+./ofjaaah.sh site
 ```
 
 ## Contacts
