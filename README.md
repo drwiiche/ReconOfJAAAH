@@ -1,8 +1,7 @@
-<h1>[ BUG - HUNTERS ]</h1>
+# OFJAAAH - BUG HUNTER 
 
 ![tomlo](https://user-images.githubusercontent.com/28729614/85304899-4c757f80-b47a-11ea-8671-aa83273c73a5.gif)
 
-# OFJAAAH - BUG HUNTER 
 
 Automated reccon script tool. [ BUG-BOUNTY ]
 
