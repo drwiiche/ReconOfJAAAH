@@ -32,8 +32,6 @@ chmod +x ofjaaah.sh
 ./ofjaaah.sh site'
 ```
 
-Please make sure to update tests as appropriate.
-
 ## Contacts
 [Linkedin](https://www.linkedin.com/in/atjunior/)
 
