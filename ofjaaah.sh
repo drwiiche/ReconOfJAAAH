@@ -12,6 +12,8 @@ echo -e "\e[5mhttps://www.linkedin.com/in/atjunior/ \e[25mConnect :D "
 #go get github.com/tomnomnom/waybackurls
 #GO111MODULE=on go get -u -v github.com/projectdiscovery/nuclei/cmd/nuclei
 #git clone https://github.com/projectdiscovery/nuclei-templates.git
+#go get -u github.com/cgboal/sonarsearch/crobat-client
+#crobat-client --init
 
 #Create folders####################
 
@@ -75,6 +77,10 @@ if [ ! -d cert ]; then
     mkdir -p cert
 fi 
 
+if [ ! -d crobalt ]; then
+    mkdir -p crobalt
+fi 
+
 #Delet files########################
 
 rm -rf naabu/*.*
@@ -87,12 +93,17 @@ rm -rf asset/*.*
 #rm -rf nuclei/*.*
 #rm -rf shodan/*.*
 rm -rf findomain/*.*
-rm -rf cert/*.*
+#rm -rf cert/*.*
+rm -rf crobalt/*.*
 ####################################
 
-getcert(){
-curl -s "https://crt.sh/?q=$1&output=json" | jq '.[]["name_value"]' | sort -u | tr -d '"' >> cert/cert.txt
+getcro(){
+crobat-client --all $1 >> crobalt/crob.txt
 }
+
+#getcert(){
+#&> /dev/null curl -s "https://crt.sh/?q=$1&output=json" | jq '.[]["name_value"]' | sort -u | tr -d '"' >> cert/cert.txt
+#}
 
 #getshodan(){
 #shodan domain $1 >> shodan/shodan.txt
@@ -120,7 +131,7 @@ assetfinder --subs-only $1 >> asset/finder.txt
 
 }
 getcollect(){
-cat subhttp/saida.txt asset/finder.txt findomain/findomain.txt cert/cert.txt >> full/fullenumerate.txt
+cat subhttp/saida.txt asset/finder.txt findomain/findomain.txt cert/cert.txt crobalt/crob.txt >> full/fullenumerate.txt
 }
 
 gethtttprobe(){
@@ -147,8 +158,8 @@ getnaabu(){
 #}
 
 #run
-
-getcert $1
+getcro $1
+#getcert $1
 #getshodan $1 $2
 #getamass $1
 getfindomain $1
