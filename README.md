@@ -11,6 +11,7 @@ Automated tool based.
 [Crobal-client](https://sonar.omnisint.io/)  
 [Amass](https://github.com/OWASP/Amass)  
 [Findomain](https://github.com/Edu4rdSHL/findomain)
+[Shosubgo](https://github.com/incogbyte/shosubgo)
 
 
 ## Installation
@@ -20,9 +21,14 @@ Use the package manager [go](https://golang.org/doc/install) to install foobar.
 ```bash
 To use go must be installed.
 
+You can uncomment the first lines he will downloads.
+
 It is not installed uncomment the dependent lines at the beginning of the code to download the scripts.
 
 The code can be changed to the wordlist to make recons of subdomains, adding your directory.
+
+Need to add your shodan apy key on line 109.
+
 ```
 
 ## Usage
