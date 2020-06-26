@@ -47,9 +47,9 @@ if [ ! -d subhttp ]; then
     mkdir -p subhttp
 fi
 
-#if [ ! -d amass ]; then
-#    mkdir -p amass
-#fi
+if [ ! -d amass ]; then
+    mkdir -p amass
+fi
 
 if [ ! -d full ]; then
     mkdir -p full
@@ -87,7 +87,7 @@ fi
 
 rm -rf naabu/*.*
 rm -rf subhttp/*.*
-#rm -rf amass/*.*
+rm -rf amass/*.*
 rm -rf full/*.*
 rm -rf httprobe/*.*
 #rm -rf ettu/*.*
@@ -111,9 +111,9 @@ getsho(){
 &> /dev/null shosubgo -d $1 -s u2K3nu5JkEPeLKL3O3PsjeOiLVIXEfnz >> shosubgo/shosubgo.txt
 }
 
-#getamass(){
-#&> /dev/null amass enum -d $1 -brute -active -o amass/amassdns.txt
-#}
+getamass(){
+&> /dev/null amass enum -d $1 -brute -active -o amass/amassdns.txt
+}
 
 getfindomain(){
 &> /dev/null /home/ofjaaah/PENTESTER/findomain-linux -t $1 -u findomain/findomain.txt
@@ -133,7 +133,7 @@ assetfinder --subs-only $1 >> asset/finder.txt
 
 }
 getcollect(){
-cat shosubgo/shosubgo.txt subhttp/saida.txt asset/finder.txt findomain/findomain.txt cert/cert.txt crobalt/crob.txt | sort -u  >> full/fullenumerate.txt
+cat amass/amass.txt shosubgo/shosubgo.txt subhttp/saida.txt asset/finder.txt findomain/findomain.txt cert/cert.txt crobalt/crob.txt | sort -u  >> full/fullenumerate.txt
 }
 
 #getfilter(){
@@ -167,7 +167,7 @@ getnaabu(){
 getcro $1
 getcert $1
 getsho $1
-#getamass $1
+getamass $1
 getfindomain $1
 getsubfinder $1
 #getettu $1
