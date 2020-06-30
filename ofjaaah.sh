@@ -105,7 +105,7 @@ crobat-client --all $1 >> crobalt/crob.txt
 }
 
 getsho(){
-&> /dev/null shosubgo -d $1 -s u2K3nu5JkEPeLKL3O3PsjeOiLVIXEfnz >> shosubgo/shosubgo.txt
+&> /dev/null shosubgo -d $1 -s API_KEY >> shosubgo/shosubgo.txt
 }
 
 #getamass(){
