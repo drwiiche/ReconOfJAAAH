@@ -15,6 +15,9 @@ Automated tool based.
 [Project Discovery](https://github.com/projectdiscovery/)  
 [AsnLookup](https://gist.github.com/nitefood/1eba4183012dcca0f082535f0eb128db)
 
+## Credit
+[Bruno minossi](https://github.com/bminossi)
+
 
 ## Installation
 
