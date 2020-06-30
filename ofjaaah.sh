@@ -47,9 +47,9 @@ if [ ! -d subhttp ]; then
     mkdir -p subhttp
 fi
 
-if [ ! -d amass ]; then
-    mkdir -p amass
-fi
+#if [ ! -d amass ]; then
+#    mkdir -p amass
+#fi
 
 if [ ! -d full ]; then
     mkdir -p full
@@ -136,12 +136,13 @@ getcollect(){
 cat amass/amassdns.txt shosubgo/shosubgo.txt subhttp/saida.txt asset/finder.txt findomain/findomain.txt cert/cert.txt crobalt/crob.txt | sort -u  >> full/fullenumerate.txt
 }
 
-#getfilter(){
-#sort -u full/fullenumerate.txt
-#}
+#Recon 2 filter
+getfilter(){
+subfinder -dL full/fullenumerate.txt -o fullfilter.txt
+}
 
 gethtttprobe(){
-cat full/fullenumerate.txt | httprobe  >> httprobe/urls.txt
+cat full/fullfilter.txt | httprobe  >> httprobe/urls.txt
 }
 
 #getwayback(){
@@ -151,6 +152,8 @@ cat full/fullenumerate.txt | httprobe  >> httprobe/urls.txt
 getnaabu(){
 &> /dev/null naabu -hL full/fullenumerate.txt -ports full -o naabu/naabucomplet.txt -silent
 }
+
+#Recon - Wordlist
 
 #getettu(){ ettu
 #cat /home/ofjaaah/PENTESTER/SecLists/Discovery/DNS/bitquark_20160227_subdomains_popular_1000000.txt | ettu --depth=2 $1
@@ -173,6 +176,7 @@ getsubfinder $1
 #getettu $1
 getassetfinder $1
 getcollect $1
+getfilter $1
 gethtttprobe $1
 #getwayback $1
 getnaabu $1
