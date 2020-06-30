@@ -48,7 +48,7 @@ It is not installed uncomment the dependent lines at the beginning of the code t
 
 The code can be changed to the wordlist to make recons of subdomains, adding your directory.
 
-Need to add your shodan apy key on line 109.
+Need to add your shodan apy key on line 121.
 
 ```
 
