@@ -39,9 +39,6 @@ echo -e "\e[5mhttps://www.linkedin.com/in/atjunior/ \e[25mConnect :D "
 #   mkdir -p nuclei/examples
 #fi
 
-if [ ! -d naabu ]; then
-    mkdir -p naabu
-fi
 
 if [ ! -d subhttp ]; then
     mkdir -p subhttp
@@ -75,19 +72,22 @@ if [ ! -d findomain ]; then
     mkdir -p findomain
 fi
 
-if [ ! -d cert ]; then
-    mkdir -p cert
-fi 
-
 if [ ! -d crobalt ]; then
     mkdir -p crobalt
 fi 
 
+if [ ! -d masscan ]; then
+    mkdir -p masscan
+fi
+
+if [ ! -d asn ]; then
+    mkdir asn
+fi
+
 #Delet files########################
 
-rm -rf naabu/*.*
 rm -rf subhttp/*.*
-rm -rf amass/*.*
+#rm -rf amass/*.*
 rm -rf full/*.*
 rm -rf httprobe/*.*
 #rm -rf ettu/*.*
@@ -95,33 +95,30 @@ rm -rf asset/*.*
 #rm -rf nuclei/*.*
 rm -rf shosubgo/*.*
 rm -rf findomain/*.*
-rm -rf cert/*.*
 rm -rf crobalt/*.*
+rm -rf masscan/*.*
+
 ####################################
 
 getcro(){
 crobat-client --all $1 >> crobalt/crob.txt
 }
 
-getcert(){
-&> /dev/null curl -s "https://crt.sh/?q=$1&output=json" | jq '.[]["name_value"]' | sort -u | tr -d '"' >> cert/cert.txt
-}
-
 getsho(){
 &> /dev/null shosubgo -d $1 -s u2K3nu5JkEPeLKL3O3PsjeOiLVIXEfnz >> shosubgo/shosubgo.txt
 }
 
-getamass(){
-&> /dev/null amass enum -d $1 -brute -active -o amass/amassdns.txt
-}
+#getamass(){
+#&> /dev/null amass enum -d $1 -brute -active -o amass/amassdns.txt
+#}
 
 getfindomain(){
 &> /dev/null /home/ofjaaah/PENTESTER/findomain-linux -t $1 -u findomain/findomain.txt
 }
 
 echo -e "\e[92mRecon running, please. Wait..\n"
-getsubfinder(){ 
-subfinder -d $1 -silent >> subhttp/saida.txt 
+getsubfinder(){
+subfinder -d $1 -silent >> subhttp/subfin.txt 
 }
 
 #getettu(){
@@ -133,24 +130,24 @@ assetfinder --subs-only $1 >> asset/finder.txt
 
 }
 getcollect(){
-cat amass/amassdns.txt shosubgo/shosubgo.txt subhttp/saida.txt asset/finder.txt findomain/findomain.txt cert/cert.txt crobalt/crob.txt | sort -u  >> full/fullenumerate.txt
+&> /dev/null cat shosubgo/shosubgo.txt subhttp/subfin.txt asset/finder.txt findomain/findomain.txt crobalt/crob.txt | sort -u  >> full/fullenumerate.txt
 }
 
 #Recon 2 filter
 getfilter(){
-subfinder -dL full/fullenumerate.txt -o fullfilter.txt
+&> /dev/null subfinder -dL full/fullenumerate.txt -silent -o full/filter.txt
 }
 
 gethtttprobe(){
-cat full/fullfilter.txt | httprobe  >> httprobe/urls.txt
+&> /dev/null cat full/fullfilter.txt | httprobe  >> httprobe/urls.txt
 }
 
 #getwayback(){
 #cat httprobe/urls.txt | waybackurls >> httprobe/wayback.txt
 #}
 
-getnaabu(){
-&> /dev/null naabu -hL full/fullenumerate.txt -ports full -o naabu/naabucomplet.txt -silent
+getmasscan(){
+&> /dev/null masscan -iL httprobe/urls.txt -p80,443,8000,8080,8443,4444,10001,10000,3306,21,22,8181 --rate 1000000 --source-port 60000 --wait 40 >> masscan/result.txt
 }
 
 #Recon - Wordlist
@@ -168,9 +165,8 @@ getnaabu(){
 
 #run
 getcro $1
-getcert $1
 getsho $1
-getamass $1
+#getamass $1
 getfindomain $1
 getsubfinder $1
 #getettu $1
@@ -179,5 +175,5 @@ getcollect $1
 getfilter $1
 gethtttprobe $1
 #getwayback $1
-getnaabu $1
+getmasscan $1
 #getnuclei $1
