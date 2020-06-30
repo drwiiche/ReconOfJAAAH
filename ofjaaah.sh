@@ -84,6 +84,10 @@ if [ ! -d asn ]; then
     mkdir asn
 fi
 
+if [ ! -d cert ]; then
+    mkdir cert 
+fi
+
 #Delet files########################
 
 rm -rf subhttp/*.*
@@ -97,15 +101,24 @@ rm -rf shosubgo/*.*
 rm -rf findomain/*.*
 rm -rf crobalt/*.*
 rm -rf masscan/*.*
-
+rm -rf cert/*.*
+rm -rf asn/*.*
 ####################################
+
+getcert(){
+curl -s "https://crt.sh/?q=$1&output=json" | jq -r '.[]["name_value"]' | sed 's#\*\.##g; s#www\.##g' | grep "\." | unfurl domains | sort -u >> cert/cert.txt
+}
+
+getasn(){
+bash asn.sh $1 | egrep '([0-9]{1,3}\.){3}[0-9]{1,3}.[[:digit:]]{1,}' -o >> asn/asn.txt
+}
 
 getcro(){
 crobat-client --all $1 >> crobalt/crob.txt
 }
 
 getsho(){
-&> /dev/null shosubgo -d $1 -s API_KEY >> shosubgo/shosubgo.txt
+&> /dev/null shosubgo -d $1 -s API_KEY-SHODAN >> shosubgo/shosubgo.txt
 }
 
 #getamass(){
@@ -130,7 +143,7 @@ assetfinder --subs-only $1 >> asset/finder.txt
 
 }
 getcollect(){
-&> /dev/null cat shosubgo/shosubgo.txt subhttp/subfin.txt asset/finder.txt findomain/findomain.txt crobalt/crob.txt | sort -u  >> full/fullenumerate.txt
+&> /dev/null cat cert/cert.txt shosubgo/shosubgo.txt subhttp/subfin.txt asset/finder.txt findomain/findomain.txt crobalt/crob.txt >> full/fullenumerate.txt
 }
 
 #Recon 2 filter
@@ -142,16 +155,11 @@ gethtttprobe(){
 &> /dev/null cat full/fullfilter.txt | httprobe  >> httprobe/urls.txt
 }
 
-#getwayback(){
-#cat httprobe/urls.txt | waybackurls >> httprobe/wayback.txt
-#}
-
 getmasscan(){
-&> /dev/null masscan -iL httprobe/urls.txt -p80,443,8000,8080,8443,4444,10001,10000,3306,21,22,8181 --rate 1000000 --source-port 60000 --wait 40 >> masscan/result.txt
+&> /dev/null masscan -iL asn/asn.txt -p80,443,8000,8080,8443,4444,10001,10000,3306,21,22,8181 --rate 1000000 --source-port 60000 --wait 40 >> masscan/result.txt
 }
 
 #Recon - Wordlist
-
 #getettu(){ ettu
 #cat /home/ofjaaah/PENTESTER/SecLists/Discovery/DNS/bitquark_20160227_subdomains_popular_1000000.txt | ettu --depth=2 $1
 #}
@@ -164,6 +172,8 @@ getmasscan(){
 #}
 
 #run
+getcert $1
+getasn $1
 getcro $1
 getsho $1
 #getamass $1
@@ -174,6 +184,5 @@ getassetfinder $1
 getcollect $1
 getfilter $1
 gethtttprobe $1
-#getwayback $1
 getmasscan $1
 #getnuclei $1
