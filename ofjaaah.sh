@@ -7,6 +7,7 @@ echo -e "\e[5mhttps://www.linkedin.com/in/atjunior/ \e[25mConnect :D "
 #GO111MODULE=on go get -v github.com/projectdiscovery/subfinder/cmd/subfinder
 #go get -u github.com/tomnomnom/assetfinder
 #go get -u github.com/tomnomnom/hacks/ettu
+#go get -u github.com/tomnomnom/unfurl
 #GO111MODULE=on go get -v github.com/projectdiscovery/naabu/cmd/naabu
 #go get -u github.com/tomnomnom/httprobe
 #go get github.com/tomnomnom/waybackurls
