@@ -13,6 +13,7 @@ Automated tool based.
 [Findomain](https://github.com/Edu4rdSHL/findomain)  
 [Shosubgo](https://github.com/incogbyte/shosubgo)   
 [Project Discovery](https://github.com/projectdiscovery/)
+[AsnLookup](https://gist.github.com/nitefood/1eba4183012dcca0f082535f0eb128db)
 
 
 ## Installation
