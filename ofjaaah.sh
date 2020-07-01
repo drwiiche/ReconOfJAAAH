@@ -3,7 +3,8 @@
 echo -e "\e[33mOF\e[32mJAAAH\e[31m Automation Recoon\n"
 echo -e "\e[5mhttps://www.linkedin.com/in/atjunior/ \e[25mConnect :D "
 
-#install dependenci
+#install dependency
+#apt-get install jq
 #GO111MODULE=on go get -v github.com/projectdiscovery/subfinder/cmd/subfinder
 #go get -u github.com/tomnomnom/assetfinder
 #go get -u github.com/tomnomnom/hacks/ettu
