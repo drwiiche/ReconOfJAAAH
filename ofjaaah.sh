@@ -4,7 +4,7 @@
 echo -e "\e[33mOF\e[32mJAAAH\e[31m Automation Recoon\n"
 echo -e "\e[5mhttps://www.linkedin.com/in/atjunior/ \e[25mConnect :D "
 
-#install dependenci
+#install dependency
 #apt-get install jq
 #go get -u github.com/cgboal/sonarsearch/crobat-client
 #crobat-client --init
