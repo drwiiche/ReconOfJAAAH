@@ -1,24 +1,14 @@
+└──╼ #cat ofjaaah.sh 
 #Create Ataide Junior - OFJAAAH
 
 echo -e "\e[33mOF\e[32mJAAAH\e[31m Automation Recoon\n"
 echo -e "\e[5mhttps://www.linkedin.com/in/atjunior/ \e[25mConnect :D "
 
-#install dependency
+#install dependenci
 #apt-get install jq
-#GO111MODULE=on go get -v github.com/projectdiscovery/subfinder/cmd/subfinder
-#go get -u github.com/tomnomnom/assetfinder
-#go get -u github.com/tomnomnom/hacks/ettu
-#go get -u github.com/tomnomnom/unfurl
-#GO111MODULE=on go get -v github.com/projectdiscovery/naabu/cmd/naabu
-#go get -u github.com/tomnomnom/httprobe
-#go get github.com/tomnomnom/waybackurls
-#GO111MODULE=on go get -u -v github.com/projectdiscovery/nuclei/cmd/nuclei
-#git clone https://github.com/projectdiscovery/nuclei-templates.git
 #go get -u github.com/cgboal/sonarsearch/crobat-client
 #crobat-client --init
-#git clone https://github.com/incogbyte/shosubgo.git
-
-
+#cd modules && cp *.* /usr/bin/
 #Create folders####################
 
 #if [ ! -d nuclei ]; then
@@ -120,7 +110,7 @@ crobat-client --all $1 >> crobalt/crob.txt
 }
 
 getsho(){
-&> /dev/null shosubgo -d $1 -s API_KEY-SHODAN >> shosubgo/shosubgo.txt
+&> /dev/null shosubgo -d $1 -s APIKEYSHODAN >> shosubgo/shosubgo.txt
 }
 
 #getamass(){
