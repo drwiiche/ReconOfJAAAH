@@ -55,6 +55,11 @@ Need to add your shodan apy key on line 113.
 ## Usage
 
 ```bash
+#install dependency
+#apt-get install jq
+#go get -u github.com/cgboal/sonarsearch/crobat-client
+#crobat-client --init
+#cd modules && cp *.* /usr/bin/
 chmod +x ofjaaah.sh
 ./ofjaaah.sh site
 ```
